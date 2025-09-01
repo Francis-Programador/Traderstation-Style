@@ -1,1 +1,159 @@
+/* ===== Reset Básico ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
+body {
+  font-family: "Roboto", sans-serif;
+  background: linear-gradient(to bottom, #000 50%, #111 100%);
+  color: #e0e0e0;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* ===== Fundo animado com gráfico ===== */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: repeating-linear-gradient(
+    to right,
+    rgba(0,255,153,0.1) 0px,
+    rgba(0,255,153,0.1) 2px,
+    transparent 2px,
+    transparent 80px
+  );
+  z-index: -2;
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  bottom: 0; left: 0;
+  width: 200%;
+  height: 100%;
+  background: linear-gradient(to top, rgba(0,255,153,0.2), transparent),
+              repeating-linear-gradient(
+                to right,
+                #00ff99 10px, #00ff99 12px,
+                transparent 12px, transparent 40px
+              );
+  animation: moveCandles 6s linear infinite;
+  z-index: -1;
+  opacity: 0.5;
+}
+
+@keyframes moveCandles {
+  from { transform: translateX(0); }
+  to { transform: translateX(-200px); }
+}
+
+/* ===== Cabeçalho ===== */
+header {
+  text-align: center;
+  padding: 2rem;
+  background: rgba(0, 0, 0, 0.7);
+  border-bottom: 2px solid #00ff99;
+}
+
+header h1 {
+  font-size: 2.8rem;
+  color: #00ff99;
+  text-shadow: 0 0 15px #00ff99;
+}
+
+header h2 {
+  font-size: 1.3rem;
+  color: #ff3333;
+}
+
+/* ===== Conteúdo Principal ===== */
+.main {
+  padding: 2rem;
+  background: rgba(20, 20, 20, 0.85);
+  border-radius: 12px;
+  margin: 2rem;
+  box-shadow: 0 0 20px rgba(0,255,153,0.3);
+  transition: transform 0.3s ease;
+}
+
+.main:hover {
+  transform: scale(1.02);
+}
+
+/* ===== Títulos ===== */
+h3 {
+  color: #00ff99;
+  margin-bottom: 0.5rem;
+  border-left: 4px solid #ff3333;
+  padding-left: 0.5rem;
+}
+
+/* ===== Links ===== */
+a {
+  color: #00ff99;
+  text-decoration: none;
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+a:hover {
+  color: #ff3333;
+  text-shadow: 0 0 10px #ff3333;
+}
+
+/* ===== Sidebar ===== */
+.sidebar {
+  background: rgba(0, 0, 0, 0.8);
+  padding: 2rem;
+  border-left: 3px solid #00ff99;
+}
+
+.sidebar h3 {
+  color: #ff3333;
+  margin-bottom: 1rem;
+}
+
+.sidebar li {
+  margin: 0.8rem 0;
+  list-style: none;
+}
+
+.sidebar li a {
+  display: inline-block;
+  padding: 0.3rem 0.6rem;
+  border: 1px solid #00ff99;
+  border-radius: 6px;
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.sidebar li a:hover {
+  background: #00ff99;
+  color: #000;
+  transform: translateX(5px);
+}
+
+/* ===== Rodapé ===== */
+footer {
+  text-align: center;
+  padding: 1rem;
+  background: rgba(0, 0, 0, 0.7);
+  margin-top: 2rem;
+}
+
+footer a {
+  margin: 0 1rem;
+  font-weight: bold;
+  transition: transform 0.3s ease;
+}
+
+footer a:hover {
+  transform: scale(1.2);
+}
+
+/* ===== Transições Globais ===== */
+section, .sidebar, .main {
+  transition: all 0.4s ease-in-out;
+}
